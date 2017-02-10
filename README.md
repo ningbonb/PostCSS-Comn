@@ -30,4 +30,4 @@ source:[http://www.w3cplus.com](http://www.w3cplus.com)
 [konw10]:http://www.w3cplus.com/PostCSS/using-postcss-together-with-sass-stylus-or-less.html
 [konw11]:http://www.w3cplus.com/PostCSS/using-postcss-with-bem-and-suit-methodologies.html
 [konw12]:http://www.w3cplus.com/PostCSS/postcss-deep-dive-shortcuts-and-shorthand.html
-[konw13]:http://www.w3cplus.com/preprocessor/getting-started-with-postcss-a-quick-guide-for-sass-users.html
+[know13]:http://www.w3cplus.com/preprocessor/getting-started-with-postcss-a-quick-guide-for-sass-users.html
