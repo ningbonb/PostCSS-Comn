@@ -3,25 +3,25 @@ PostCss入门
 
 ## 命令与配置
 
-### 淘宝镜像npm`cnpm`（写命令时，将`npm`换成`cnpm`，其他与npm语法相同）
+**淘宝镜像npm`cnpm`（写命令时，将`npm`换成`cnpm`，其他与npm语法相同）**
 ```git
 npm install cnpm -g --registry=https://registry.npm.taobao.org
 ```
 
-### 全局安装`gulp`  
+**全局安装`gulp`**
 如果之前有安装过一个全局版本的 gulp，请执行一下`npm rm --global gulp`来避免和`gulp-cli`冲突
 
 ```git
 $ cnpm install --global gulp-cli
 ```
 
-### 项目安装`gulp`（项目根目录下）
+**项目安装`gulp`（项目根目录下）**
 ```git
 $ cnpm install --save-dev gulp
 ```
 
 
-### 配置`package.json`文件
+**配置`package.json`文件**
 
 ```json
 { 
@@ -45,12 +45,12 @@ $ cnpm install --save-dev gulp
 }
 ```
 
-### 安装`gulp-postcss`（项目根目录下）
+**安装`gulp-postcss`（项目根目录下）**
 ```git
 cnpm install --save-dev gulp-postcss
 ```
 
-### 配置`gulpfile.js`文件，`src`文件为css编辑文件，`css`文件为编译生成文件
+**配置`gulpfile.js`文件，`src`文件为css编辑文件，`css`文件为编译生成文件**
 
 ```javascript
 var gulp = require('gulp');
@@ -67,19 +67,19 @@ gulp.task('css', function () {
 });
 ```
 
-### 测试（在`src`中创建测试文件`style.css`）
+**测试（在`src`中创建测试文件`style.css`）**
 ```css
 .test{
 	background: black;
 }
 ```
-### 测试运行命令，在`css`文件查看`style.css`
+**测试运行命令，在`css`文件查看`style.css`**
 
 ```git
 $ gulp css
 ```
 
-### 添加PostCSS插件：[Autoprefixer][autopre](处理浏览器私有前缀)，[cssnext][cssnext](使用CSS未来的语法),[precss][precss](像Sass的函数)
+**添加PostCSS插件：[Autoprefixer][autopre](处理浏览器私有前缀)，[cssnext][cssnext](使用CSS未来的语法),[precss][precss](像Sass的函数)**
 
 ```git
 $ cnpm install autoprefixer --save-dev
@@ -87,7 +87,7 @@ $ cnpm install cssnext --save-dev
 $ cnpm install precss --save-dev
 ```
 
-### 配置`gulpfile.js`文件
+**配置`gulpfile.js`文件**
 
 ```javascript
 var autoprefixer = require('autoprefixer'); 
@@ -103,13 +103,13 @@ var processors = [
 ]; 
 ```
 
-### 运行命令，在`css`文件查看`style.css`
+**运行命令，在`css`文件查看`style.css`**
 
 ```git
 $ gulp css
 ```
 
-## PostCss入门教程
+**PostCss入门教程**
 source:[http://www.w3cplus.com][source1]
 
 * [PostCSS深入学习：你需要知道什么][konw1]
@@ -172,4 +172,5 @@ source:[http://www.w3cplus.com][source1]
 [for]:https://github.com/antyakushev/postcss-for
 [nested]:https://github.com/postcss/postcss-nested
 [transformshortcut]:https://github.com/jonathantneal/postcss-transform-shortcut
+[autopre]:https://github.com/postcss/autoprefixer
 [precss]:https://github.com/jonathantneal/precss
