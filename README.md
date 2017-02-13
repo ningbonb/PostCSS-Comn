@@ -1,5 +1,5 @@
-# PostCss
-PostCss入门
+# PostCSS
+PostCSS入门
 
 ## 命令与配置
 
@@ -109,7 +109,7 @@ var processors = [
 $ gulp css
 ```
 
-**PostCss入门教程**
+**PostCSS入门教程**
 source:[http://www.w3cplus.com][source1]
 
 * [PostCSS深入学习：你需要知道什么][konw1]
@@ -132,7 +132,12 @@ source:[http://www.w3cplus.com][source1]
 * [Prepros][prepros]
 
 ## 插件
-* [cssnext][cssnext]
+* [cssnext][cssnext]：CSS未来语法
+* [Autoprefixer][autopre]:自动补全浏览器私有前缀
+* [precss][precss]:编译类似Sass的函数
+* [postcss-import][import]：通过@import，整合多个CSS文件
+* [css-mqpacker][mqpacker]：将相同的CSS媒体查询规则合并为一个
+* [cssnano][cssnano]：压缩CSS文件
 * [postcss-simple-vars][simplevars]
 * [postcss-discard-comments][discardcomments]
 * [postcss-custom-media][custommedia]
@@ -174,3 +179,6 @@ source:[http://www.w3cplus.com][source1]
 [transformshortcut]:https://github.com/jonathantneal/postcss-transform-shortcut
 [autopre]:https://github.com/postcss/autoprefixer
 [precss]:https://github.com/jonathantneal/precss
+[cssnano]:http://cssnano.co/
+[import]:https://github.com/postcss/postcss-import
+[mqpacker]:https://github.com/hail2u/node-css-mqpacker
