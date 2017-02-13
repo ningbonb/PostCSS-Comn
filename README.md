@@ -132,11 +132,9 @@ source:[http://www.w3cplus.com][source1]
 * [Prepros][prepros]
 
 ## 插件
-
-### 插件列表
 插件列表：[Github][pluginsList] | [postcss.parts][postcssParts]
 
-### 常用插件：
+常用插件：
 
 * [cssnext][cssnext]：CSS未来语法
 * [Autoprefixer][autopre]：自动补全浏览器私有前缀
