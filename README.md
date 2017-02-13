@@ -139,8 +139,8 @@ source:[http://www.w3cplus.com][source1]
 ### 常用插件：
 
 * [cssnext][cssnext]：CSS未来语法
-* [Autoprefixer][autopre]:自动补全浏览器私有前缀
-* [precss][precss]:编译类似Sass的函数
+* [Autoprefixer][autopre]：自动补全浏览器私有前缀
+* [precss][precss]：编译类似Sass的函数
 * [postcss-import][import]：通过@import，整合多个CSS文件
 * [css-mqpacker][mqpacker]：将相同的CSS媒体查询规则合并为一个
 * [cssnano][cssnano]：压缩CSS文件
