@@ -109,7 +109,7 @@ var processors = [
 $ gulp css
 ```
 
-**PostCSS入门教程**
+## PostCSS入门教程
 source:[http://www.w3cplus.com][source1]
 
 * [PostCSS深入学习：你需要知道什么][konw1]
@@ -138,13 +138,14 @@ source:[http://www.w3cplus.com][source1]
 
 * [cssnext][cssnext]：CSS未来语法
 * [Autoprefixer][autopre]：自动补全浏览器私有前缀
-* [precss][precss]：编译类似Sass的函数
+* [precss][precss]：CSS预处理（整合Sass、LESS或Stylus功能，语法基本和Sass的相同）
 * [postcss-import][import]：通过@import，整合多个CSS文件
 * [css-mqpacker][mqpacker]：将相同的CSS媒体查询规则合并为一个
 * [cssnano][cssnano]：压缩CSS文件
 * [postcss-color-rgba-fallback][postcssRgba]：给rgba颜色创建降级方案(添加备用颜色)
 * [postcss-opacity][opacity]：给opacity提供降级方案（给IE浏览器添加滤镜属性）
 * [node-pixrem][pixrem]：让IE8支持rem单位
+* [postcss-pseudoelements][pseudoelements]：将伪元素的`::`转换为`:`(IE8不支持`::`)
 
 [source1]:http://www.w3cplus.co
 
@@ -174,6 +175,7 @@ source:[http://www.w3cplus.com][source1]
 [postcssRgba]:https://github.com/postcss/postcss-color-rgba-fallback
 [opacity]:https://github.com/iamvdo/postcss-opacity
 [pixrem]:https://github.com/robwierzbowski/node-pixrem
+[pseudoelements]:https://github.com/axa-ch/postcss-pseudoelements
 
 [pluginsList]:https://github.com/postcss/postcss#plugins
 [postcssParts]:http://postcss.parts/
