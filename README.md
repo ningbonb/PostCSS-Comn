@@ -5,7 +5,7 @@ PostCSS入门
 
 **淘宝镜像npm`cnpm`（写命令时，将`npm`换成`cnpm`，其他与npm语法相同）**
 ```git
-npm install cnpm -g --registry=https://registry.npm.taobao.org
+$ npm install cnpm -g --registry=https://registry.npm.taobao.org
 ```
 
 **全局安装`gulp`**
@@ -132,21 +132,21 @@ source:[http://www.w3cplus.com][source1]
 * [Prepros][prepros]
 
 ## 插件
+
+### 插件列表
+插件列表：[Github][pluginsList] | [postcss.parts][postcssParts]
+
+### 常用插件：
+
 * [cssnext][cssnext]：CSS未来语法
 * [Autoprefixer][autopre]:自动补全浏览器私有前缀
 * [precss][precss]:编译类似Sass的函数
 * [postcss-import][import]：通过@import，整合多个CSS文件
 * [css-mqpacker][mqpacker]：将相同的CSS媒体查询规则合并为一个
 * [cssnano][cssnano]：压缩CSS文件
-* [postcss-simple-vars][simplevars]
-* [postcss-discard-comments][discardcomments]
-* [postcss-custom-media][custommedia]
-* [postcss-media-minmax][mediaminmax]
-* [postcss-conditionals][conditionals]
-* [postcss-each][each]
-* [postcss-for][for]
-* [postcss-nested][nested]
-* [postcss-transform-shortcut][transformshortcut]
+* [postcss-color-rgba-fallback][postcssRgba]：给rgba颜色创建降级方案(添加备用颜色)
+* [postcss-opacity][opacity]：给opacity提供降级方案（给IE浏览器添加滤镜属性）
+* [node-pixrem][pixrem]：让IE8支持rem单位
 
 [source1]:http://www.w3cplus.co
 
@@ -168,17 +168,14 @@ source:[http://www.w3cplus.com][source1]
 [prepros]:https://prepros.io/
 
 [cssnext]:http://cssnext.io/features/
-[simplevars]:https://github.com/postcss/postcss-simple-vars
-[discardcomments]:https://github.com/ben-eb/postcss-discard-comments
-[custommedia]:https://github.com/postcss/postcss-custom-media
-[mediaminmax]:https://github.com/postcss/postcss-media-minmax
-[conditionals]:https://github.com/andyjansson/postcss-conditionals
-[each]:https://github.com/outpunk/postcss-each
-[for]:https://github.com/antyakushev/postcss-for
-[nested]:https://github.com/postcss/postcss-nested
-[transformshortcut]:https://github.com/jonathantneal/postcss-transform-shortcut
 [autopre]:https://github.com/postcss/autoprefixer
 [precss]:https://github.com/jonathantneal/precss
 [cssnano]:http://cssnano.co/
 [import]:https://github.com/postcss/postcss-import
 [mqpacker]:https://github.com/hail2u/node-css-mqpacker
+[postcssRgba]:https://github.com/postcss/postcss-color-rgba-fallback
+[opacity]:https://github.com/iamvdo/postcss-opacity
+[pixrem]:https://github.com/robwierzbowski/node-pixrem
+
+[pluginsList]:https://github.com/postcss/postcss#plugins
+[postcssParts]:http://postcss.parts/
