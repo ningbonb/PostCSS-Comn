@@ -1,22 +1,29 @@
 {
-  "name": "testPostCSS",
-  "version": "0.0.1",
-  "description": "test PostCSS gulp plugin",
+  "name": "PostCSS-Comn",
+  "version": "1.0.0",
+  "description": "PostCSS common plugins",
   "keywords": [
     "gulpplugin",
     "PostCSS",
     "css"
   ],
-  "author": "damo",
+  "author": "ningbo",
   "license": "MIT",
   "dependencies": {
     "postcss": "^5.0.0",
     "gulp": "~3.8.10"
   },
   "devDependencies": {
-    "autoprefixer": "^6.7.2",
+    "autoprefixer": "^6.7.3",
+    "css-mqpacker": "^5.0.1",
+    "cssnano": "^3.10.0",
     "cssnext": "^1.8.4",
     "gulp-postcss": "^6.3.0",
+    "pixrem": "^3.0.2",
+    "postcss-color-rgba-fallback": "^2.2.0",
+    "postcss-import": "^9.1.0",
+    "postcss-opacity": "^4.0.0",
+    "postcss-pseudoelements": "^3.0.0",
     "precss": "^1.4.0"
   }
 }

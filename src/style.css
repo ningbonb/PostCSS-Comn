@@ -1,23 +1,80 @@
+/*整合多个css*/
+@import '../normalize/normalize.css';
+
 .test{
 	background: black;
 }
 
-/*Testing autoprefixer*/
+/*Testing autoprefixer 添加浏览器内核前缀*/
 .autoprefixer{
 	display: flex;
 }
 
-/*Testing cssnext*/
+/*Testing cssnext css 未来语法*/
 .cssnext{
 	background: color(red alpha(-10%));
 }
 
-/*Testing precss*/
+/*Testing precss 类似Sass预编译*/
 .precss { 
 	@if 3 < 5 { 
 		background: green; 
 	} 
 	@else { 
 		background: blue; 
+	} 
+}
+
+/*Testing postcss-color-rgba-fallback 给rgba颜色创建降级方案*/
+.rgbaFallback { 
+	background: rgba(0,0,0,0.5); 
+}
+
+/*Testing postcss-opacity 给opacity提供降级方案（给IE浏览器添加滤镜属性）*/
+.opacityFallback { 
+	opacity: 0.5; 
+}
+
+/*testing pixrem 让IE8支持rem单位*/
+.remFallback { 
+	height: 10rem; 
+	font: 2rem Arial; 
+} 
+.remFallback::before { 
+	content: ''; 
+	line-height: 1rem; 
+}
+
+/*Testing postcss-pseudoelements 将伪元素的::转换为:(IE8不支持::)*/
+.pseudo-element::before { 
+	content: ''; 
+}
+
+
+/*Testing css-mqpacker 合并媒体查询*/
+.column { 
+	width: 50%; 
+	float: left; 
+} 
+@media (max-width: 50rem) { 
+	.column { 
+		width: 100%; 
+		float: none; 
+	} 
+}
+
+
+.column_one, .column_two { 
+	border: 0.0625rem solid #ccc; 
+} 
+.column_two { 
+	border-left: 0; 
+} 
+@media (max-width: 50rem) { 
+	.column_one, .column_two { 
+		border: 0.0625rem solid #ccc; 
+	} 
+	.column_two { 
+		border-top: 0; 
 	} 
 }

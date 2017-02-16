@@ -1,7 +1,61 @@
-# PostCSS
-PostCSS入门
+# PostCSS-Comn
+PostCSS-Comn使用说明，整合PostCSS常用功能
 
-## 命令与配置
+## 插件作用
+- 支持CSS未来语法
+- 自动补全浏览器私有前缀
+- CSS预处理（整合Sass、LESS或Stylus功能，语法基本和Sass的相同）
+- 通过@import，整合多个CSS文件
+- 将相同的CSS媒体查询规则合并为一个
+- 压缩CSS文件
+- 给rgba颜色创建降级方案(添加备用颜色)
+- 给opacity提供降级方案（给IE浏览器添加滤镜属性）
+- 让IE8支持rem单位
+- 将伪元素的`::`转换为`:`(IE8不支持`::`)
+
+## 使用说明
+1. [全局安装Gulp][gulp-g]
+2. 复制仓库文件到项目目录
+3. 命令终端运行：`npm install`（淘宝镜像使用该命令：`cnpm install`）
+4. `src文件夹` 为编辑源文件，`css文件夹` 为生成代码文件
+5. `src文件夹` 目录下命令终端运行：`gulp css`
+6. `css文件夹` 内查看编译后结果
+
+
+----------
+
+## 以下内容为自定义进阶
+
+## PostCSS-Comn插件扩展
+以扩展`postcss-will-change`插件为例
+
+**安装插件 项目目录下执行命令行**
+
+```git
+$ npm install postcss-will-change --save-dev
+```
+**配置`gulpfile.js`文件**
+
+```javascript
+// 添加此行
+var will_change = require('postcss-will-change');
+```
+
+```javascript
+gulp.task('css', function () { 
+	var processors = [
+		// 添加此行
+		will_change
+	]; 
+});
+```
+
+**完成 执行命令查看效果**
+```git
+gulp css
+```
+
+## PostCSS配置与命令
 
 **淘宝镜像npm`cnpm`（写命令时，将`npm`换成`cnpm`，其他与npm语法相同）**
 ```git
@@ -20,20 +74,19 @@ $ cnpm install --global gulp-cli
 $ cnpm install --save-dev gulp
 ```
 
-
 **配置`package.json`文件**
 
 ```json
 { 
-	"name": "testPostCSS", 
+	"name": "PostCSS-Comn", 
 	"version": "0.0.1", 
-	"description": "test PostCSS gulp plugin", 
+	"description": "PostCSS gulp plugin", 
 	"keywords": [ 
 		"gulpplugin", 
 		"PostCSS", 
 		"css" 
 	], 
-	"author": "damo", 
+	"author": "ningbo", 
 	"license": "MIT", 
 	"dependencies": { 
 		"postcss": "^5.0.0", 
@@ -112,40 +165,40 @@ $ gulp css
 ## PostCSS入门教程
 source:[http://www.w3cplus.com][source1]
 
-* [PostCSS深入学习：你需要知道什么][konw1]
-* [PostCSS深入学习：设置选项][konw2]
-* [PostCSS深入学习：Gulp设置][konw3]
-* [PostCSS深入学习：Grunt配置][konw4]
-* [PostCSS深入学习: 管理插件][konw5]
-* [PostCSS深入学习: 跨浏览器兼容性][konw6]
-* [PostCSS深入学习: 压缩和优化CSS][konw7]
-* [PostCSS深入学习: PreCSS的使用][konw8]
-* [PostCSS深入学习: 定制自己的预处理器][konw9]
-* [PostCSS深入学习: PostCSS和Sass、Stylus或LESS一起使用][konw10]
-* [PostCSS深入学习: 结合BEM和SUIT方法使用PostCSS][konw11]
-* [PostCSS深入学习: 简写和速写][konw12]
-* [PostCSS入门：Sass用户入门指南][know13]
+- [PostCSS深入学习：你需要知道什么][konw1]
+- [PostCSS深入学习：设置选项][konw2]
+- [PostCSS深入学习：Gulp设置][konw3]
+- [PostCSS深入学习：Grunt配置][konw4]
+- [PostCSS深入学习: 管理插件][konw5]
+- [PostCSS深入学习: 跨浏览器兼容性][konw6]
+- [PostCSS深入学习: 压缩和优化CSS][konw7]
+- [PostCSS深入学习: PreCSS的使用][konw8]
+- [PostCSS深入学习: 定制自己的预处理器][konw9]
+- [PostCSS深入学习: PostCSS和Sass、Stylus或LESS一起使用][konw10]
+- [PostCSS深入学习: 结合BEM和SUIT方法使用PostCSS][konw11]
+- [PostCSS深入学习: 简写和速写][konw12]
+- [PostCSS入门：Sass用户入门指南][know13]
 
 ## 工具
 
-* [CodePen][codepen]
-* [Prepros][prepros]
+- [CodePen][codepen]
+- [Prepros][prepros]
 
 ## 插件
 插件列表：[Github][pluginsList] | [postcss.parts][postcssParts]
 
 常用插件：
 
-* [cssnext][cssnext]：CSS未来语法
-* [Autoprefixer][autopre]：自动补全浏览器私有前缀
-* [precss][precss]：CSS预处理（整合Sass、LESS或Stylus功能，语法基本和Sass的相同）
-* [postcss-import][import]：通过@import，整合多个CSS文件
-* [css-mqpacker][mqpacker]：将相同的CSS媒体查询规则合并为一个
-* [cssnano][cssnano]：压缩CSS文件
-* [postcss-color-rgba-fallback][postcssRgba]：给rgba颜色创建降级方案(添加备用颜色)
-* [postcss-opacity][opacity]：给opacity提供降级方案（给IE浏览器添加滤镜属性）
-* [node-pixrem][pixrem]：让IE8支持rem单位
-* [postcss-pseudoelements][pseudoelements]：将伪元素的`::`转换为`:`(IE8不支持`::`)
+- [cssnext][cssnext]：CSS未来语法
+- [Autoprefixer][autopre]：自动补全浏览器私有前缀
+- [precss][precss]：CSS预处理（整合Sass、LESS或Stylus功能，语法基本和Sass的相同）
+- [postcss-import][import]：通过@import，整合多个CSS文件
+- [css-mqpacker][mqpacker]：将相同的CSS媒体查询规则合并为一个
+- [cssnano][cssnano]：压缩CSS文件
+- [postcss-color-rgba-fallback][postcssRgba]：给rgba颜色创建降级方案(添加备用颜色)
+- [postcss-opacity][opacity]：给opacity提供降级方案（给IE浏览器添加滤镜属性）
+- [node-pixrem][pixrem]：让IE8支持rem单位
+- [postcss-pseudoelements][pseudoelements]：将伪元素的`::`转换为`:`(IE8不支持`::`)
 
 [source1]:http://www.w3cplus.co
 
@@ -179,3 +232,5 @@ source:[http://www.w3cplus.com][source1]
 
 [pluginsList]:https://github.com/postcss/postcss#plugins
 [postcssParts]:http://postcss.parts/
+
+[gulp-g]:http://www.w3cplus.com/PostCSS/using-postcss-for-cross-browser-compatibility.html
