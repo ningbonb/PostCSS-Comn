@@ -1,0 +1,268 @@
+# PreCSS 语法说明
+PreCSS是PostCSS的一种插件，用来进行CSS预编译
+
+- PreCSS中的嵌套可以使用 `&` 符，把父选择器复制到子选择器中
+- PreCSS使用 `$` 符声明变量，比如 `$color: #ccc`
+- PreCSS中用 `@if` 和 `@else` 来控制循环
+- PreCSS中用 `@define-mixin mixin_name $arg1,$arg2{...}` 语法来声明混合宏
+- PreCSS中用 `@mixin mixin_name pass_arg1, pass_arg2;` 语法来调用混合宏
+- PreCSS中用 `@mixin-content` 保留传递内容
+- PreCSS中使用 `@define-extend extend_name{...}` 来声明可扩展的代码块
+- PreCSS中使用 `@extend extend_name` 语法来调用声明的代码扩展块
+- PreCSS可以使用 `@import` 中导入CSS文件
+
+## 嵌套
+PreCSS和其的预处理器一样，可以使用`&`符，把父选择器复制到子选择器中
+
+```css
+.menu{
+	width: 100%;
+	a{
+		text-decoration: none;
+	}
+	&::before{
+		content: '';
+	}
+}
+```
+
+嵌套后结果
+
+```css
+.menu{
+	width: 100%;
+}
+
+.menu a{
+	text-decoration: none;
+}
+
+.menu:before{
+	content: '';
+}
+```
+
+----------
+
+
+## 变量
+使用$符声明变量，比如`$color: #ccc`
+
+```css
+$text_color: #232323;
+$border_comn: 1px solid red;
+body{
+	color: $text_color;
+	border: $border_comn;
+}
+```
+
+编译后结果
+
+```css
+body{
+	color: #232323;
+	border: 1px solid red;
+}
+```
+
+----------
+
+
+## 条件
+条件判断语句，使用`@if`和`@else`
+
+```css
+$column_layout: 2;
+.column{
+	@if $column_layout == 2{
+		width: 50%;
+		float: left;
+	}@else{
+		width: 100%;
+	}
+}
+```
+
+编译后结果
+
+```css
+.column{
+	width: 50%;
+	float: left
+}
+```
+
+----------
+
+
+## 循环
+`@for` 循环：用一个计数器变量，来设置循环的周期  
+`@each` 循环：循环周期是一个列表，而不是数字  
+
+注意：当变量插入到一个字符串中时，需要用括号包裹变量名，例如 `$(var）`
+
+```css
+@for $i from 1 to 3{
+	p:nth-of-type($i){
+		margin-left: calc(100% / $i);
+	}
+}
+```
+
+编译后结果
+
+```css
+p:nth-of-type(1){
+	margin-left: calc(100% / 1);
+}
+
+p:nth-of-type(2){
+	margin-left: calc(100% / 2);
+}
+
+p:nth-of-type(3){
+	margin-left: calc(100% / 3);
+}
+```
+
+----------
+
+```css
+$social: twitter,facebook,youtube;
+@each $icon in ($social){
+	.icon-$(icon){
+		background: url('img/$(icon).png');
+	}
+}
+```
+
+编译后结果
+
+```css
+.icon-twitter{
+	background: url('img/twitter.png');
+}
+
+.icon-facebook{
+	background: url('img/facebook.png');
+}
+
+.icon-youtube{
+	background: url('img/youtube.png');
+}
+```
+
+----------
+
+## 混合宏 Mixins
+通过 `@define-mixin mixin_name $arg1, $arg2 {...}` 来声明一个混合宏  
+使用 `@mixin mixin_name pass_arg1, pass_arg2;` 来调用混合宏
+
+```css
+@define-mixin icon $network, $color{
+	.button .$(network){
+		background-image: url("img/$(network).png");
+		background-color: $color;
+	}
+}
+
+@mixin icon twitter, blue;
+@mixin icon youtube, red;
+```
+
+编译后结果
+
+```css
+.button .twitter{
+	background-image: url("img/twitter.png");
+	background-color: blue;
+}
+
+.button .youtube{
+	background-image: url("img/youtube.png");
+	background-color: red;
+}
+```
+
+----------
+
+## 传递内容 @mixin-content
+除了可以传递参数之外，还可以保留传递内容
+
+```css
+@define-mixin icon $network,$color{
+	.button .$(network){
+		background-image: url('img/$(network).png');
+		background-color: $color;
+		@mixin-content;
+	}
+}
+
+@mixin icon twitter, blue{
+	width: 3rem;
+}
+```
+
+编译后结果
+
+```
+.button .twitter{
+	background-image: url('img/twitter.png');
+	background-color: blue;
+	width: 48px;
+	width: 3rem;
+}
+```
+
+----------
+
+## 扩展
+创建一个多次复用的代码块  
+使用 `@define-extend extend_name{...}` 方式来声明扩展的代码块。  
+通过 `@extend extend_name` 来调用声明的代码块。  
+合并重复的样式
+
+```css
+@define-extend rounded_button{
+	border-radius: 0.5rem;
+	padding: 1rem;
+	border-width: 0.0625rem;
+	border-style: solid;
+}
+.blue_button{
+	@extend rounded_button;
+	border-color: rgba(0,0,0,0.2);
+	background-color: #333;
+}
+.red_button{
+	@extend rounded_button;
+	border-color: rgba(255,255,255,0.2);
+	background-color: #666;
+}
+```
+
+编译后结果
+
+```css
+.blue_button, .red_button{
+	border-radius: 0.5rem;
+	padding: 16px;
+	padding: 1rem;
+	border-width: 1px;
+	border-width: 0.0625rem;
+	border-style: solid;
+}
+
+.blue_button{
+	border-color: #000000;
+	border-color: rgba(0,0,0,0.2);
+	background-color: #333;
+}
+
+.red_button{
+	border-color: #ffffff;
+	border-color: rgba(255,255,255,0.2);
+	background-color: #666;
+}
+```

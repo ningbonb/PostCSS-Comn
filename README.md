@@ -15,12 +15,14 @@ PostCSS-Comn使用说明，整合PostCSS常用功能
 
 ## 使用说明
 1. [全局安装Gulp][gulp-g]
-2. 复制仓库文件到项目目录
+2. 复制仓库文件到项目目录（`PostCSS文件夹` 内的内容）
 3. 命令终端运行：`npm install`（淘宝镜像使用该命令：`cnpm install`）
 4. `src文件夹` 为编辑源文件，`css文件夹` 为生成代码文件
 5. `src文件夹` 目录下命令终端运行：`gulp css`
 6. `css文件夹` 内查看编译后结果
 
+## 语法介绍
+- [PreCSS语法介绍](./precss)
 
 ----------
 
