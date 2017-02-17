@@ -1,4 +1,4 @@
-# cssnext语法说明
+# cssnext 语法说明
 支持书写CSS未来语法的插件，文章整理了支持PostCSS的常用语法
 
 - 自定义属性 & `var()`
@@ -8,6 +8,8 @@
 - 自定义选择器 & `@custom-selector`
 - 嵌套 & `&`
 - color()
+
+----------
 
 ## 自定义属性 & `var()`
 在 `:root{}` 中定义常用属性，使用`--`前缀命名变量  
@@ -267,4 +269,3 @@ a:hover{
 
 [cssnext]:http://cssnext.io/
 [nalvyboo]:https://github.com/NalvyBoo/PostCSS-Comn/tree/master/cssnext
-[]:
